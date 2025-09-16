@@ -16,27 +16,27 @@ namespace TaskManager.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTask([FromBody] TaskDto task)
         {
-            var cmd = new { action = "create", task };
+            var cmd = new { action = "AddTask", task };
             await _ws.SendCommandAsync(cmd);
-            return Accepted(new { message = "Create command sent" });
+            return Accepted(new { message = "AddTask command sent" });
         }
     
     
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateStatus(string id, [FromBody] StatusDto status)
         {
-            var cmd = new { action = "update-status", id, isActive = status.IsActive };
+            var cmd = new { action = "UpdateTask", id, isActive = status.IsActive };
             await _ws.SendCommandAsync(cmd);
-            return Accepted(new { message = "Update-status command sent" });
+            return Accepted(new { message = "UpdateTask command sent" });
         }
     
     
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTask(string id)
         {
-            var cmd = new { action = "delete", id };
+            var cmd = new { action = "DeleteTask", id };
             await _ws.SendCommandAsync(cmd);
-            return Accepted(new { message = "Delete command sent" });
+            return Accepted(new { message = "DeleteTask command sent" });
         }
     }
 }

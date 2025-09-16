@@ -1,0 +1,6 @@
+@TaskProcessor_HostAddress = http://localhost:5058
+
+GET {{TaskProcessor_HostAddress}}/internal/
+Accept: application/json
+
+###
