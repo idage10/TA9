@@ -1,0 +1,6 @@
+@Service1Taskmanager_HostAddress = http://localhost:5241
+
+GET {{Service1Taskmanager_HostAddress}}/tasks/
+Accept: application/json
+
+###
