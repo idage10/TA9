@@ -12,7 +12,6 @@ namespace TaskProcessor.Api.Services
 {
     public class WebSocketHandler
     {
-        private readonly ITaskService _service;
         private readonly ILogger<WebSocketHandler> _logger;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly Dictionary<WebSocket, string> _clients = new();
@@ -22,8 +21,6 @@ namespace TaskProcessor.Api.Services
         {
             _logger = logger;
             _scopeFactory = scopeFactory;
-            using var scope = _scopeFactory.CreateScope();
-            _service = scope.ServiceProvider.GetRequiredService<ITaskService>();
         }
     
         public async Task HandleAsync(HttpContext context, WebSocket webSocket)
@@ -44,6 +41,9 @@ namespace TaskProcessor.Api.Services
                 else
                 {
                     var msg = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                    using var scope = _scopeFactory.CreateScope();
+                    var service = scope.ServiceProvider.GetRequiredService<ITaskService>();
+
                     try
                     {
                         var doc = JsonDocument.Parse(msg);
@@ -56,20 +56,15 @@ namespace TaskProcessor.Api.Services
                                 var addCmd = JsonSerializer.Deserialize<AddTaskCommand>(msg);
                                 if (addCmd?.Task != null)
                                 {
-                                    await _service.AddTaskAsync(addCmd.Task);
+                                    await service.AddTaskAsync(addCmd.Task);
                                 }
                                 break;
 
                             case "UpdateTask":
                                 var updateCmd = JsonSerializer.Deserialize<UpdateStatusCommand>(msg);
-                                if (updateCmd != null)
+                                if (!string.IsNullOrEmpty(updateCmd?.Id))
                                 {
-                                    var existing = await _service.GetTaskByIdAsync(updateCmd.Id);
-                                    if (existing != null)
-                                    {
-                                        existing.IsActive = updateCmd.IsActive;
-                                        await _service.UpdateTaskAsync(existing);
-                                    }
+                                    await service.UpdateTaskAsync(updateCmd.Id, updateCmd.IsActive);
                                 }
                                 break;
 
@@ -77,7 +72,7 @@ namespace TaskProcessor.Api.Services
                                 var deleteCmd = JsonSerializer.Deserialize<DeleteTaskCommand>(msg);
                                 if (!string.IsNullOrEmpty(deleteCmd?.Id))
                                 {
-                                    await _service.DeleteTaskAsync(deleteCmd.Id);
+                                    await service.DeleteTaskAsync(deleteCmd.Id);
                                 }
                                 break;
                         }

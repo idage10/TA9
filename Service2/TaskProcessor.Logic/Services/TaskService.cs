@@ -16,9 +16,9 @@ namespace TaskProcessor.Logic.Services
         public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
             await _repo.GetTaskByIdAsync(id);
 
-        public async Task UpdateTaskAsync(TaskEntityDto taskDto)
+        public async Task UpdateTaskAsync(string id, bool isActive)
         {
-            await _repo.UpdateTaskAsync(taskDto);
+            await _repo.UpdateTaskAsync(id, isActive);
         }
 
         public async Task DeleteTaskAsync(string id) =>

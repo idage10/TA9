@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System;
-using TaskProcessor.Data.Models;
 using TaskProcessor.Api.Services;
 using TaskProcessor.Data;
 using TaskProcessor.Data.Interfaces;

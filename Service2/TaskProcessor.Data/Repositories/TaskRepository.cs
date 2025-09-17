@@ -41,18 +41,14 @@ namespace TaskProcessor.Data.Repositories
             };
         }
 
-        public async Task UpdateTaskAsync(TaskEntityDto taskDto)
+        public async Task UpdateTaskAsync(string id, bool isActive)
         {
-            TaskEntity entity = new TaskEntity
-            {
-                Id = taskDto.Id,
-                ParentId = taskDto.ParentId,
-                Parent = taskDto.Parent,
-                Children = taskDto.Children,
-                IsActive = taskDto.IsActive,
-                Name = taskDto.Name
+            var entity = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
-            };
+            if (entity == null) return;
+
+            entity.IsActive = isActive;
+
             _context.Tasks.Update(entity);
             await _context.SaveChangesAsync();
         }
