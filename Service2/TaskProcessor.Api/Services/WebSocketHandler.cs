@@ -18,11 +18,12 @@ namespace TaskProcessor.Api.Services
         private readonly Dictionary<WebSocket, string> _clients = new();
 
 
-        public WebSocketHandler(ITaskService service, ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory)
+        public WebSocketHandler(ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory)
         {
-            _service = service;
             _logger = logger;
             _scopeFactory = scopeFactory;
+            using var scope = _scopeFactory.CreateScope();
+            _service = scope.ServiceProvider.GetRequiredService<ITaskService>();
         }
     
         public async Task HandleAsync(HttpContext context, WebSocket webSocket)
@@ -46,53 +47,37 @@ namespace TaskProcessor.Api.Services
                     try
                     {
                         var doc = JsonDocument.Parse(msg);
-                        if (!doc.RootElement.TryGetProperty("action", out var actionProp)) continue;
+                        if (!doc.RootElement.TryGetProperty("Action", out var actionProp)) continue;
                         var action = actionProp.GetString();
-    
+
                         switch (action)
                         {
                             case "AddTask":
-                                var newTask = JsonSerializer.Deserialize<TaskEntity>(msg);
-                                if (newTask != null)
+                                var addCmd = JsonSerializer.Deserialize<AddTaskCommand>(msg);
+                                if (addCmd?.Task != null)
                                 {
-                                    using var scope = _scopeFactory.CreateScope();
-                                    var db = scope.ServiceProvider.GetRequiredService<TasksDbContext>();
-                                    db.Tasks.Add(newTask);
-                                    await db.SaveChangesAsync();
-                                    await BroadcastAsync(msg);
+                                    await _service.AddTaskAsync(addCmd.Task);
                                 }
                                 break;
-    
+
                             case "UpdateTask":
-                                var updateTask = JsonSerializer.Deserialize<TaskEntity>(msg);
-                                if (updateTask != null)
+                                var updateCmd = JsonSerializer.Deserialize<UpdateStatusCommand>(msg);
+                                if (updateCmd != null)
                                 {
-                                    using var scope = _scopeFactory.CreateScope();
-                                    var db = scope.ServiceProvider.GetRequiredService<TasksDbContext>();
-                                    var existing = await db.Tasks.FirstOrDefaultAsync(t => t.Id == updateTask.Id);
+                                    var existing = await _service.GetTaskByIdAsync(updateCmd.Id);
                                     if (existing != null)
                                     {
-                                        existing.IsActive = updateTask.IsActive;
-                                        existing.Title = updateTask.Title;
-                                        await db.SaveChangesAsync();
-                                        await BroadcastAsync(msg);
+                                        existing.IsActive = updateCmd.IsActive;
+                                        await _service.UpdateTaskAsync(existing);
                                     }
                                 }
                                 break;
-    
+
                             case "DeleteTask":
-                                var id = doc.RootElement.GetProperty("id").GetString();
-                                if (!string.IsNullOrEmpty(id))
+                                var deleteCmd = JsonSerializer.Deserialize<DeleteTaskCommand>(msg);
+                                if (!string.IsNullOrEmpty(deleteCmd?.Id))
                                 {
-                                    using var scope = _scopeFactory.CreateScope();
-                                    var db = scope.ServiceProvider.GetRequiredService<TasksDbContext>();
-                                    var task = await db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
-                                    if (task != null)
-                                    {
-                                        db.Tasks.Remove(task);
-                                        await db.SaveChangesAsync();
-                                        await BroadcastAsync(msg);
-                                    }
+                                    await _service.DeleteTaskAsync(deleteCmd.Id);
                                 }
                                 break;
                         }
@@ -105,6 +90,7 @@ namespace TaskProcessor.Api.Services
             }
         }
     
+        // Optional for sending messages back to the client
         private async Task BroadcastAsync(string msg)
         {
             var bytes = Encoding.UTF8.GetBytes(msg);

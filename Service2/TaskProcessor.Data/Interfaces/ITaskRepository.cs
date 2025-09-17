@@ -4,9 +4,9 @@ namespace TaskProcessor.Data.Interfaces
 {
     public interface ITaskRepository
     {
-        Task AddTaskAsync(TaskEntity task);
-        Task<TaskEntity?> GetTaskByIdAsync(string id);
-        Task UpdateTaskAsync(TaskEntity task);
+        Task AddTaskAsync(TaskEntityDto task);
+        Task<TaskEntityDto?> GetTaskByIdAsync(string id);
+        Task UpdateTaskAsync(TaskEntityDto task);
         Task DeleteTaskAsync(string id);
     }
 }

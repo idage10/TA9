@@ -1,11 +1,12 @@
-﻿using TaskProcessor.Data.Models;
+﻿using TaskProcessor.Data;
 
 namespace TaskProcessor.Logic.Interfaces
 {
     public interface ITaskService
     {
-        Task AddTaskAsync(TaskEntity task);
-        Task UpdateTaskStatusAsync(string id, bool isActive);
+        Task AddTaskAsync(TaskEntityDto task);
+        Task<TaskEntityDto?> GetTaskByIdAsync(string id);
+        Task UpdateTaskAsync(TaskEntityDto task);
         Task DeleteTaskAsync(string id);
     }
 }

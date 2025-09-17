@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TaskProcessor.Data.Models;
 using TaskProcessor.Data.Interfaces;
 
 namespace TaskProcessor.Data.Repositories
@@ -9,16 +8,16 @@ namespace TaskProcessor.Data.Repositories
         private readonly TasksDbContext _context;
         public TaskRepository(TasksDbContext context) => _context = context;
 
-        public async Task AddTaskAsync(TaskEntity task)
+        public async Task AddTaskAsync(TaskEntityDto task)
         {
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<TaskEntity?> GetTaskByIdAsync(string id) =>
+        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
             await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
-        public async Task UpdateTaskAsync(TaskEntity task)
+        public async Task UpdateTaskAsync(TaskEntityDto task)
         {
             _context.Tasks.Update(task);
             await _context.SaveChangesAsync();

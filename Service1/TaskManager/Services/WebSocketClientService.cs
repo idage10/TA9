@@ -39,7 +39,7 @@ namespace TaskManager.Services
             {
                 var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 if (result.MessageType == WebSocketMessageType.Close) break;
-                // For this assignment we don't expect responses. But you could handle ack messages here.
+                // For responses, Handle ack messages here.
             }
         }
     

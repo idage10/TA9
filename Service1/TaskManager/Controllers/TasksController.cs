@@ -14,9 +14,9 @@ namespace TaskManager.Controllers
     
     
         [HttpPost]
-        public async Task<IActionResult> CreateTask([FromBody] TaskDto task)
+        public async Task<IActionResult> CreateTask([FromBody] TaskEntityDto task)
         {
-            var cmd = new { action = "AddTask", task };
+            var cmd = new { Action = "AddTask", Task = task };
             await _ws.SendCommandAsync(cmd);
             return Accepted(new { message = "AddTask command sent" });
         }
@@ -25,7 +25,7 @@ namespace TaskManager.Controllers
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateStatus(string id, [FromBody] StatusDto status)
         {
-            var cmd = new { action = "UpdateTask", id, isActive = status.IsActive };
+            var cmd = new { Action = "UpdateTask", Id = id, IsActive = status.IsActive };
             await _ws.SendCommandAsync(cmd);
             return Accepted(new { message = "UpdateTask command sent" });
         }
@@ -34,7 +34,7 @@ namespace TaskManager.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTask(string id)
         {
-            var cmd = new { action = "DeleteTask", id };
+            var cmd = new { Action = "DeleteTask", Id = id };
             await _ws.SendCommandAsync(cmd);
             return Accepted(new { message = "DeleteTask command sent" });
         }

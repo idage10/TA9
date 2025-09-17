@@ -1,4 +1,5 @@
-﻿using TaskProcessor.Data.Interfaces;
+﻿using TaskProcessor.Data;
+using TaskProcessor.Data.Interfaces;
 using TaskProcessor.Data.Models;
 using TaskProcessor.Logic.Interfaces;
 
@@ -9,14 +10,14 @@ namespace TaskProcessor.Logic.Services
         private readonly ITaskRepository _repo;
         public TaskService(ITaskRepository repo) => _repo = repo;
 
-        public async Task AddTaskAsync(TaskEntity task) =>
+        public async Task AddTaskAsync(TaskEntityDto task) =>
             await _repo.AddTaskAsync(task);
 
-        public async Task UpdateTaskStatusAsync(string id, bool isActive)
+        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
+            await _repo.GetTaskByIdAsync(id);
+
+        public async Task UpdateTaskAsync(TaskEntityDto task)
         {
-            var task = await _repo.GetTaskByIdAsync(id);
-            if (task == null) return;
-            task.IsActive = isActive;
             await _repo.UpdateTaskAsync(task);
         }
 

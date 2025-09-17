@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskProcessor.Data.Models;
-
-namespace TaskProcessor.Data
+﻿namespace TaskManager.Models
 {
     public class TaskEntityDto
     {
@@ -22,4 +14,6 @@ namespace TaskProcessor.Data
 
         public string Name { get; set; } = string.Empty;
     }
+
+    public class StatusDto { public bool IsActive { get; set; } }
 }
