@@ -1,0 +1,15 @@
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.csproj.AssemblyReference.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.AssemblyInfoInputs.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.AssemblyInfo.cs
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.csproj.CoreCompileInputs.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.sourcelink.json
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\bin\Debug\net8.0\TaskProcessor.Data.deps.json
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\bin\Debug\net8.0\TaskProcessor.Data.runtimeconfig.json
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\bin\Debug\net8.0\TaskProcessor.Data.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\bin\Debug\net8.0\TaskProcessor.Data.pdb
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\refint\TaskProcessor.Data.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.pdb
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\TaskProcessor.Data.genruntimeconfig.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Data\obj\Debug\net8.0\ref\TaskProcessor.Data.dll

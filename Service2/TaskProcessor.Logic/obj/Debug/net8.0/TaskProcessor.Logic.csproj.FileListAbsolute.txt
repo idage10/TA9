@@ -1,0 +1,16 @@
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.csproj.AssemblyReference.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.AssemblyInfoInputs.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.AssemblyInfo.cs
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.csproj.CoreCompileInputs.cache
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.sourcelink.json
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\bin\Debug\net8.0\TaskProcessor.Logic.deps.json
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\bin\Debug\net8.0\TaskProcessor.Logic.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\bin\Debug\net8.0\TaskProcessor.Logic.pdb
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\bin\Debug\net8.0\TaskProcessor.Data.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\bin\Debug\net8.0\TaskProcessor.Data.pdb
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProc.36C26B54.Up2Date
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\refint\TaskProcessor.Logic.dll
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\TaskProcessor.Logic.pdb
+C:\Users\idan\Source\Repos\TA9\Service2\TaskProcessor.Logic\obj\Debug\net8.0\ref\TaskProcessor.Logic.dll

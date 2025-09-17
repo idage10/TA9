@@ -14,9 +14,9 @@ namespace TaskProcessor.Data
 
         public string? ParentId { get; set; }
 
-        public TaskEntityDto? Parent { get; set; }
+        public TaskEntity? Parent { get; set; }
 
-        public List<TaskEntityDto> Children { get; set; } = new();
+        public List<TaskEntity> Children { get; set; } = new();
 
         public bool IsActive { get; set; } = true;
 

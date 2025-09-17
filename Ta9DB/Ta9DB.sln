@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Ta9TasksDB", "Ta9TasksDB\Ta9TasksDB.sqlproj", "{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E6E6AE-AE01-4888-BDE0-8646CAD6750F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0D1FD4E-5D85-48FE-8D78-D668BC51862A}
+	EndGlobalSection
+EndGlobal

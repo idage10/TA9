@@ -4,9 +4,9 @@ namespace TaskProcessor.Logic.Interfaces
 {
     public interface ITaskService
     {
-        Task AddTaskAsync(TaskEntityDto task);
+        Task AddTaskAsync(TaskEntityDto taskDto);
         Task<TaskEntityDto?> GetTaskByIdAsync(string id);
-        Task UpdateTaskAsync(TaskEntityDto task);
+        Task UpdateTaskAsync(TaskEntityDto taskDto);
         Task DeleteTaskAsync(string id);
     }
 }

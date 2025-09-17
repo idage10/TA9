@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskProcessor.Data.Interfaces;
+using TaskProcessor.Data.Models;
 
 namespace TaskProcessor.Data.Repositories
 {
@@ -8,18 +9,51 @@ namespace TaskProcessor.Data.Repositories
         private readonly TasksDbContext _context;
         public TaskRepository(TasksDbContext context) => _context = context;
 
-        public async Task AddTaskAsync(TaskEntityDto task)
+        public async Task AddTaskAsync(TaskEntityDto taskDto)
         {
-            _context.Tasks.Add(task);
+            TaskEntity entity = new TaskEntity
+            {
+                ParentId = taskDto.ParentId,
+                Name = taskDto.Name,
+
+            };
+            _context.Tasks.Add(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
-            await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
-
-        public async Task UpdateTaskAsync(TaskEntityDto task)
+        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id)
         {
-            _context.Tasks.Update(task);
+            TaskEntity? entity = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
+
+            if (entity == null) 
+            {
+                return null;
+            }
+
+            return new TaskEntityDto
+            {
+                Id = entity.Id,
+                ParentId = entity.ParentId,
+                Parent = entity.Parent,
+                Children = entity.Children,
+                IsActive = entity.IsActive,
+                Name = entity.Name
+            };
+        }
+
+        public async Task UpdateTaskAsync(TaskEntityDto taskDto)
+        {
+            TaskEntity entity = new TaskEntity
+            {
+                Id = taskDto.Id,
+                ParentId = taskDto.ParentId,
+                Parent = taskDto.Parent,
+                Children = taskDto.Children,
+                IsActive = taskDto.IsActive,
+                Name = taskDto.Name
+
+            };
+            _context.Tasks.Update(entity);
             await _context.SaveChangesAsync();
         }
 

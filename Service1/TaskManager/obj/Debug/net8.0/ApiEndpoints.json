@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "task",
-        "Type": "TaskManager.Models.TaskDto",
+        "Type": "TaskManager.Models.TaskEntityDto",
         "IsRequired": true
       }
     ],

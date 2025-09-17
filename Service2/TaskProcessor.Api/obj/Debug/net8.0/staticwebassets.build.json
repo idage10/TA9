@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "2rrMPjCcf5xkbn6J1h4uKKxoi+tFA43UrhRW9AWLEEE=",
+  "Source": "TaskProcessor.Api",
+  "BasePath": "_content/TaskProcessor.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,4 +1,5 @@
-﻿using TaskProcessor.Data;
+﻿using System.Text.Json.Serialization;
+using TaskProcessor.Data;
 using TaskProcessor.Data.Models;
 
 namespace TaskProcessor.Api
@@ -18,7 +19,10 @@ namespace TaskProcessor.Api
 
     public class DeleteTaskCommand
     {
+        [JsonPropertyName("action")]
         public string Action { get; set; } = "DeleteTask";
+
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
     }
 }

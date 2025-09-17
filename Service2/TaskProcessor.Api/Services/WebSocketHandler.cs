@@ -47,7 +47,7 @@ namespace TaskProcessor.Api.Services
                     try
                     {
                         var doc = JsonDocument.Parse(msg);
-                        if (!doc.RootElement.TryGetProperty("Action", out var actionProp)) continue;
+                        if (!doc.RootElement.TryGetProperty("action", out var actionProp)) continue;
                         var action = actionProp.GetString();
 
                         switch (action)

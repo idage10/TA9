@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "ConnectionStrings": {
-        "DBConnection": "Server=(localdb)\\ProjectModels;Database=TA9Tasks;Trusted_Connection=True;"
+        "DBConnection": "Server=(localdb)\\ProjectModels;Database=Ta9TasksDB;Trusted_Connection=True;"
       }
     },
     "https": {

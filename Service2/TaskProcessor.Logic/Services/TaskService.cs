@@ -10,15 +10,15 @@ namespace TaskProcessor.Logic.Services
         private readonly ITaskRepository _repo;
         public TaskService(ITaskRepository repo) => _repo = repo;
 
-        public async Task AddTaskAsync(TaskEntityDto task) =>
-            await _repo.AddTaskAsync(task);
+        public async Task AddTaskAsync(TaskEntityDto taskDto) =>
+            await _repo.AddTaskAsync(taskDto);
 
         public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
             await _repo.GetTaskByIdAsync(id);
 
-        public async Task UpdateTaskAsync(TaskEntityDto task)
+        public async Task UpdateTaskAsync(TaskEntityDto taskDto)
         {
-            await _repo.UpdateTaskAsync(task);
+            await _repo.UpdateTaskAsync(taskDto);
         }
 
         public async Task DeleteTaskAsync(string id) =>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskProcessor.Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5843b2108e70254493c813a172a9ab985bf5bbc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f894d4e597ff47d673995ffb412cc510394411e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskProcessor.Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskProcessor.Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
