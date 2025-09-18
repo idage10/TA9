@@ -21,23 +21,43 @@ namespace TaskProcessor.Data.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id)
+        // Get task by id with its children. Load all tasks once from the Database, build tree in memory.
+        public async Task<TaskEntityDto?> GetTaskByIdWithChildrenAsync(string id)
         {
-            TaskEntity? entity = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
+            // Load all tasks
+            var allTasks = await _context.Tasks.ToListAsync();
 
-            if (entity == null) 
+            TaskEntity? rootEntity = allTasks.FirstOrDefault(t => t.Id == id);
+
+            if (rootEntity == null) return null;
+            
+            // Populate the children for every task
+            AttachChildren(rootEntity, allTasks);
+
+            // Map the task entity to task entity Dto including all the children
+            return MapEntityToDto(rootEntity);
+        }
+
+        // Build tree in memory and find all children for every task
+        void AttachChildren(TaskEntity node, List<TaskEntity> allTasks)
+        {
+            // Set children list for every task
+            node.Children = allTasks.Where(t => t.ParentId == node.Id).ToList();
+            foreach (var child in node.Children)
             {
-                return null;
+                AttachChildren(child, allTasks);
             }
+        }
 
+        private TaskEntityDto MapEntityToDto(TaskEntity entity)
+        {
             return new TaskEntityDto
             {
                 Id = entity.Id,
                 ParentId = entity.ParentId,
-                Parent = entity.Parent,
-                Children = entity.Children,
                 IsActive = entity.IsActive,
-                Name = entity.Name
+                Name = entity.Name,
+                Children = entity.Children?.Select(MapEntityToDto).ToList() ?? new List<TaskEntityDto>()
             };
         }
 

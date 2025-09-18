@@ -13,8 +13,8 @@ namespace TaskProcessor.Logic.Services
         public async Task AddTaskAsync(TaskEntityDto taskDto) =>
             await _repo.AddTaskAsync(taskDto);
 
-        public async Task<TaskEntityDto?> GetTaskByIdAsync(string id) =>
-            await _repo.GetTaskByIdAsync(id);
+        public async Task<TaskEntityDto?> GetTaskByIdWithChildrenAsync(string id) =>
+            await _repo.GetTaskByIdWithChildrenAsync(id);
 
         public async Task UpdateTaskAsync(string id, bool isActive) =>
             await _repo.UpdateTaskAsync(id, isActive);
@@ -23,26 +23,29 @@ namespace TaskProcessor.Logic.Services
             await _repo.DeleteTaskAsync(id);
 
         /// <summary>
-        /// Calculates the depth of a task in the parent-child chain.
+        /// Calculates the maximum tree level of a rootTaskEntity in the parent-child chain (downwards from parent to children).
         /// </summary>
         public async Task<int?> GetTaskLevelAsync(string id)
         {
-            var task = await _repo.GetTaskByIdAsync(id);
-            if (task == null) return null;
-
-            int level = 1;
-            var current = task;
-
-            while (current.ParentId != null)
+            var rootTaskEntity = await _repo.GetTaskByIdWithChildrenAsync(id); // include children
+            if (rootTaskEntity == null)
             {
-                var parent = await _repo.GetTaskByIdAsync(current.ParentId);
-                if (parent == null) break; // corrupted chain
-
-                level++;
-                current = parent;
+                return null;
             }
 
-            return level;
+            return CalculateLevel(rootTaskEntity);
+        }
+
+        // Calculate tree level from root entity task to maximum lowest child in the parent-child chain
+        private int CalculateLevel(TaskEntityDto task)
+        {
+            if (task.Children == null || !task.Children.Any())
+            {
+                return 1; // leaf node level is 1
+            }
+
+            // 1 (current node) + max depth of children
+            return 1 + task.Children.Max(t => CalculateLevel(t));
         }
     }
 }

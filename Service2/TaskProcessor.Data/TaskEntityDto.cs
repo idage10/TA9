@@ -16,9 +16,9 @@ namespace TaskProcessor.Data
         [JsonPropertyName("parentId")]
         public string? ParentId { get; set; }
 
-        public TaskEntity? Parent { get; set; }
+        public TaskEntityDto? Parent { get; set; }
 
-        public List<TaskEntity> Children { get; set; } = new();
+        public List<TaskEntityDto> Children { get; set; } = new();
 
         public bool IsActive { get; set; } = true;
 
