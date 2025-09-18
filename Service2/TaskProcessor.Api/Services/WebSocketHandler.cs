@@ -15,12 +15,13 @@ namespace TaskProcessor.Api.Services
         private readonly ILogger<WebSocketHandler> _logger;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly Dictionary<WebSocket, string> _clients = new();
+        private readonly IHttpClientFactory _httpClientFactory;
 
-
-        public WebSocketHandler(ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory)
+        public WebSocketHandler(ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             _scopeFactory = scopeFactory;
+            _httpClientFactory = httpClientFactory;
         }
     
         public async Task HandleAsync(HttpContext context, WebSocket webSocket)
@@ -98,31 +99,18 @@ namespace TaskProcessor.Api.Services
                 }
             }
         }
-    
-        public async Task<Dictionary<string, TaskEntity>> BuildSubtreeAsync(string id)
+
+        // Send http request to service
+        public async Task<int?> GetTaskLevelFromService3(string taskId)
         {
-            using var scope = _scopeFactory.CreateScope();
-            var db = scope.ServiceProvider.GetRequiredService<TasksDbContext>();
-    
-            var map = new Dictionary<string, TaskEntity>();
-            var root = await db.Tasks
-                .Include(t => t.Children)
-                .FirstOrDefaultAsync(t => t.Id == id);
-    
-            if (root == null) return map;
-    
-            void Dfs(TaskEntity node)
-            {
-                map[node.Id] = node;
-                foreach (var child in node.Children)
-                {
-                    var loaded = db.Tasks.Include(t => t.Children).First(t => t.Id == child.Id);
-                    Dfs(loaded);
-                }
-            }
-    
-            Dfs(root);
-            return map;
+            var client = _httpClientFactory.CreateClient("Service3");
+            var response = await client.GetAsync($"/analyze-task/{taskId}/level");
+
+            if (!response.IsSuccessStatusCode) return null;
+
+            var json = await response.Content.ReadAsStringAsync();
+            var doc = JsonDocument.Parse(json);
+            return doc.RootElement.GetProperty("level").GetInt32();
         }
     }
 }

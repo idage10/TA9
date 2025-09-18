@@ -8,5 +8,6 @@ namespace TaskProcessor.Logic.Interfaces
         Task<TaskEntityDto?> GetTaskByIdAsync(string id);
         Task UpdateTaskAsync(string id, bool isActive);
         Task DeleteTaskAsync(string id);
+        Task<int?> GetTaskLevelAsync(string id);
     }
 }

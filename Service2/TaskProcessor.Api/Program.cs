@@ -15,6 +15,10 @@ builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddSingleton<WebSocketHandler>();
 builder.Services.AddLogging();
+builder.Services.AddHttpClient("Service3", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:7000"); // service3 URL
+});
 
 var app = builder.Build();
 
