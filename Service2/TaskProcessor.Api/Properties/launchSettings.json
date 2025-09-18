@@ -13,7 +13,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
-      "launchUrl": "internal",
+      "launchUrl": "task-processor",
       "applicationUrl": "http://localhost:6000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -37,8 +37,8 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "internal",
+      "launchBrowser": false,
+      "launchUrl": "task-processor",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

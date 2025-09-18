@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TaskAnalyzer.Api.props" />
+</Project>

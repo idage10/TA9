@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|c:\\users\\idan\\source\\repos\\ta9\\service1\\taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|c:\\users\\idan\\source\\repos\\ta9\\service1\\taskmanager\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|c:\\users\\idan\\source\\repos\\ta9\\service1\\taskmanager\\services\\websocketclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\services\\websocketclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|c:\\users\\idan\\source\\repos\\ta9\\service1\\taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37D19A65-09F0-40C7-B14E-26368A08E04F}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TasksController.cs",
               "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\TaskManager\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "TaskManager\\Controllers\\TasksController.cs",
               "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\TaskManager\\Controllers\\TasksController.cs",
               "RelativeToolTip": "TaskManager\\Controllers\\TasksController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwBoAAAAJAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-16T17:42:02.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "WebSocketClientService.cs",
               "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\TaskManager\\Services\\WebSocketClientService.cs",
               "RelativeDocumentMoniker": "TaskManager\\Services\\WebSocketClientService.cs",
@@ -47,19 +47,21 @@
               "RelativeToolTip": "TaskManager\\Services\\WebSocketClientService.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAYwAsAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T18:22:02.338Z"
+              "WhenOpened": "2025-09-17T18:22:02.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\TaskManager\\Program.cs",
               "RelativeDocumentMoniker": "TaskManager\\Program.cs",
               "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service1\\TaskManager\\Program.cs",
               "RelativeToolTip": "TaskManager\\Program.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAAAXAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T17:35:18.706Z"
+              "WhenOpened": "2025-09-16T17:35:18.706Z",
+              "EditorCaption": ""
             }
           ]
         }

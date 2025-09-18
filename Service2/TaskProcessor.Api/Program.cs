@@ -14,6 +14,8 @@ builder.Services.AddDbContext<TasksDbContext>(options =>
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddSingleton<WebSocketHandler>();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddLogging();
 builder.Services.AddHttpClient("Service3", client =>
 {
@@ -22,6 +24,7 @@ builder.Services.AddHttpClient("Service3", client =>
 
 var app = builder.Build();
 
+app.MapControllers();
 app.UseWebSockets();
 
 app.Map("/ws", async (HttpContext context, WebSocketHandler handler) =>

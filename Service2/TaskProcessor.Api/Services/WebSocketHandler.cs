@@ -15,13 +15,11 @@ namespace TaskProcessor.Api.Services
         private readonly ILogger<WebSocketHandler> _logger;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly Dictionary<WebSocket, string> _clients = new();
-        private readonly IHttpClientFactory _httpClientFactory;
 
-        public WebSocketHandler(ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory, IHttpClientFactory httpClientFactory)
+        public WebSocketHandler(ILogger<WebSocketHandler> logger, IServiceScopeFactory scopeFactory)
         {
             _logger = logger;
             _scopeFactory = scopeFactory;
-            _httpClientFactory = httpClientFactory;
         }
     
         public async Task HandleAsync(HttpContext context, WebSocket webSocket)
@@ -98,19 +96,6 @@ namespace TaskProcessor.Api.Services
                     await socket.SendAsync(seg, WebSocketMessageType.Text, true, CancellationToken.None);
                 }
             }
-        }
-
-        // Send http request to service
-        public async Task<int?> GetTaskLevelFromService3(string taskId)
-        {
-            var client = _httpClientFactory.CreateClient("Service3");
-            var response = await client.GetAsync($"/analyze-task/{taskId}/level");
-
-            if (!response.IsSuccessStatusCode) return null;
-
-            var json = await response.Content.ReadAsStringAsync();
-            var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("level").GetInt32();
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TCehKIzLGXmxIW8ZXJmuLGuLM2BR+PGaLS+XaVd4Wh8=",
+  "Source": "TaskAnalyzer.Api",
+  "BasePath": "_content/TaskAnalyzer.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

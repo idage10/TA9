@@ -30,7 +30,7 @@ namespace TaskProcessor.Logic.Services
             var task = await _repo.GetTaskByIdAsync(id);
             if (task == null) return null;
 
-            int level = 0;
+            int level = 1;
             var current = task;
 
             while (current.ParentId != null)
