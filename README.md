@@ -5,6 +5,7 @@
 The repository includes 4 projects: 
 Service1, Service2, Service3 - are .Net projects.
 Ta9DB - is SQL Server project.
+
 To run the projects rebuild each solution and run the services using HTTP.
 To connect to Entity Framework Database you can change the connection string in launchSettings.json
 and run Update-Database command in Package Manager Console.
