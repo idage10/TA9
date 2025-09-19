@@ -15,7 +15,7 @@ namespace Service3.Controllers
         }
 
         [HttpGet("{id}/level")]
-        // Calculate tree level from root entity task to maximum lowest child in the parent-child chain
+        // Calculate tree level from root entity task to maximum lowest child in the parent-child chain (downwards from parent to children)
         public async Task<IActionResult> GetTaskLevel(string id)
         {
             var level = await _taskService.GetTaskLevelAsync(id);

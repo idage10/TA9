@@ -9,10 +9,11 @@ namespace TaskProcessor.Data.Repositories
         private readonly TasksDbContext _context;
         public TaskRepository(TasksDbContext context) => _context = context;
 
-        public async Task AddTaskAsync(TaskEntityDto taskDto)
+        public async Task CreateTaskAsync(TaskEntityDto taskDto)
         {
             TaskEntity entity = new TaskEntity
             {
+                Id = taskDto.Id,
                 ParentId = taskDto.ParentId,
                 Name = taskDto.Name,
 
@@ -21,7 +22,7 @@ namespace TaskProcessor.Data.Repositories
             await _context.SaveChangesAsync();
         }
 
-        // Get task by id with its children. Load all tasks once from the Database, build tree in memory.
+        // Get task by id with its children. Load all tasks once from the Database, build tree in memory including children.
         public async Task<TaskEntityDto?> GetTaskByIdWithChildrenAsync(string id)
         {
             // Load all tasks

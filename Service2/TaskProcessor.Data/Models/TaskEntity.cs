@@ -9,7 +9,7 @@ public class TaskEntity
     [Column("id")] // column name in DB
     public string Id { get; set; } = Guid.NewGuid().ToString();
 
-    [Column("parent_id")] // snake_case column
+    [Column("parent_id")]
     public string? ParentId { get; set; }
 
     [ForeignKey(nameof(ParentId))]
@@ -17,9 +17,9 @@ public class TaskEntity
 
     public List<TaskEntity> Children { get; set; } = new();
 
-    [Column("is_active")] // snake_case column
+    [Column("is_active")]
     public bool IsActive { get; set; } = true;
 
-    [Column("name")] // snake_case column
+    [Column("name")]
     public string Name { get; set; } = string.Empty;
 }

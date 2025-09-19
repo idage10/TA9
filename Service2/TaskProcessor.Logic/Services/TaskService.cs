@@ -10,11 +10,8 @@ namespace TaskProcessor.Logic.Services
         private readonly ITaskRepository _repo;
         public TaskService(ITaskRepository repo) => _repo = repo;
 
-        public async Task AddTaskAsync(TaskEntityDto taskDto) =>
-            await _repo.AddTaskAsync(taskDto);
-
-        public async Task<TaskEntityDto?> GetTaskByIdWithChildrenAsync(string id) =>
-            await _repo.GetTaskByIdWithChildrenAsync(id);
+        public async Task CreateTaskAsync(TaskEntityDto taskDto) =>
+            await _repo.CreateTaskAsync(taskDto);
 
         public async Task UpdateTaskAsync(string id, bool isActive) =>
             await _repo.UpdateTaskAsync(id, isActive);
@@ -23,7 +20,7 @@ namespace TaskProcessor.Logic.Services
             await _repo.DeleteTaskAsync(id);
 
         /// <summary>
-        /// Calculates the maximum tree level of a rootTaskEntity in the parent-child chain (downwards from parent to children).
+        /// Calculate tree level from root entity task to maximum lowest child in the parent-child chain (downwards from parent to children)
         /// </summary>
         public async Task<int?> GetTaskLevelAsync(string id)
         {

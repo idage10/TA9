@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace TaskProcessor.Api.Controllers
 {
@@ -18,15 +15,33 @@ namespace TaskProcessor.Api.Controllers
 
         [HttpGet("{id}")]
         // Send http request to Service3
-        public async Task<string?> GetTaskLevelFromService3(string id)
+        public async Task<IActionResult?> GetTaskLevelFromService3(string id)
         {
-            var client = _httpClientFactory.CreateClient("Service3");
-            var response = await client.GetAsync($"/analyze-task/{id}/level");
+            try
+            {
+                var client = _httpClientFactory.CreateClient("Service3");
+                var response = await client.GetAsync($"/analyze-task/{id}/level");
 
-            if (!response.IsSuccessStatusCode) return null;
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Problem(
+                        detail: "Failed to get http client response",
+                        statusCode: StatusCodes.Status500InternalServerError,
+                        title: "Error while getting task tree level"
+                    );
+                }
 
-            var json = await response.Content.ReadAsStringAsync();
-            return json;
+                var jsonString = await response.Content.ReadAsStringAsync();
+                return Accepted(new { message = jsonString });
+            }
+            catch (Exception ex)
+            {
+                return Problem(
+                    detail: ex.Message,
+                    statusCode: StatusCodes.Status500InternalServerError,
+                    title: "Error while getting task tree level"
+                );
+            }
         }
     }
 }

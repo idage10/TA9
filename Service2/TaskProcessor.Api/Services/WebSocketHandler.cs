@@ -1,17 +1,16 @@
-﻿using System;
-using System.Net.WebSockets;
+﻿using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using TaskProcessor.Data;
-using TaskProcessor.Data.Models;
+using System.Text.Json.Serialization;
+using TaskProcessor.Api.Enums;
 using TaskProcessor.Logic.Interfaces;
 
 namespace TaskProcessor.Api.Services
 {
     public class WebSocketHandler
     {
+        // Define json serialize/deserialize option to convert enum to string or string to enum
+        private readonly JsonSerializerOptions _options = new JsonSerializerOptions { Converters = { new JsonStringEnumConverter() } };
         private readonly ILogger<WebSocketHandler> _logger;
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly Dictionary<WebSocket, string> _clients = new();
@@ -41,25 +40,28 @@ namespace TaskProcessor.Api.Services
                 {
                     var msg = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     using var scope = _scopeFactory.CreateScope();
+                    // Get logic layer task service
                     var service = scope.ServiceProvider.GetRequiredService<ITaskService>();
 
                     try
                     {
                         var doc = JsonDocument.Parse(msg);
                         if (!doc.RootElement.TryGetProperty("action", out var actionProp)) continue;
-                        var action = actionProp.GetString();
+                        var actionStr = actionProp.GetString();
+                        if (!Enum.TryParse<TaskAction>(actionStr, ignoreCase: true, out var action))
+                            continue;
 
                         switch (action)
                         {
-                            case "AddTask":
-                                var addCmd = JsonSerializer.Deserialize<AddTaskCommand>(msg);
+                            case TaskAction.CreateTask:
+                                var addCmd = JsonSerializer.Deserialize<CreateTaskCommand>(msg, _options);
                                 if (addCmd?.Task != null)
                                 {
-                                    await service.AddTaskAsync(addCmd.Task);
+                                    await service.CreateTaskAsync(addCmd.Task);
                                 }
                                 break;
 
-                            case "UpdateTask":
+                            case TaskAction.UpdateTask:
                                 var updateCmd = JsonSerializer.Deserialize<UpdateStatusCommand>(msg);
                                 if (!string.IsNullOrEmpty(updateCmd?.Id))
                                 {
@@ -67,7 +69,7 @@ namespace TaskProcessor.Api.Services
                                 }
                                 break;
 
-                            case "DeleteTask":
+                            case TaskAction.DeleteTask:
                                 var deleteCmd = JsonSerializer.Deserialize<DeleteTaskCommand>(msg);
                                 if (!string.IsNullOrEmpty(deleteCmd?.Id))
                                 {
@@ -84,7 +86,7 @@ namespace TaskProcessor.Api.Services
             }
         }
     
-        // Optional for sending messages back to the client
+        // Optional for sending websocket messages back to the client
         private async Task BroadcastAsync(string msg)
         {
             var bytes = Encoding.UTF8.GetBytes(msg);

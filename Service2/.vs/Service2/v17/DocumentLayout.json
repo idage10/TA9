@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.api\\controllers\\taskprocessorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|solutionrelative:taskprocessor.api\\controllers\\taskprocessorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D26FB685-6CE5-4189-8ED4-F5079F301504}|TaskProcessor.Logic\\TaskProcessor.Logic.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.logic\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D26FB685-6CE5-4189-8ED4-F5079F301504}|TaskProcessor.Logic\\TaskProcessor.Logic.csproj|solutionrelative:taskprocessor.logic\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1FC365DD-D76A-43C3-B6AF-D667D59683B2}|TaskProcessor.Data\\TaskProcessor.Data.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.data\\repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1FC365DD-D76A-43C3-B6AF-D667D59683B2}|TaskProcessor.Data\\TaskProcessor.Data.csproj|solutionrelative:taskprocessor.data\\repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|solutionrelative:taskprocessor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.api\\services\\websockethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|solutionrelative:taskprocessor.api\\services\\websockethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|c:\\users\\idan\\source\\repos\\ta9\\service2\\taskprocessor.api\\controllers\\taskprocessorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BA72B62-A07B-4C94-8E11-3C1B2649BACE}|TaskProcessor.Api\\TaskProcessor.Api.csproj|solutionrelative:taskprocessor.api\\controllers\\taskprocessorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,70 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TaskProcessorController.cs",
               "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Controllers\\TaskProcessorController.cs",
               "RelativeDocumentMoniker": "TaskProcessor.Api\\Controllers\\TaskProcessorController.cs",
               "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Controllers\\TaskProcessorController.cs",
               "RelativeToolTip": "TaskProcessor.Api\\Controllers\\TaskProcessorController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBcAAAAvAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBEAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T14:10:00.717Z",
+              "WhenOpened": "2025-09-19T05:22:55.236Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "WebSocketHandler.cs",
               "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Services\\WebSocketHandler.cs",
               "RelativeDocumentMoniker": "TaskProcessor.Api\\Services\\WebSocketHandler.cs",
               "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Services\\WebSocketHandler.cs",
               "RelativeToolTip": "TaskProcessor.Api\\Services\\WebSocketHandler.cs",
-              "ViewState": "AQIAACYAAAAAAJSZmZmZvxUAAAApAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAYwDcAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T00:10:38.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Program.cs",
-              "RelativeDocumentMoniker": "TaskProcessor.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Api\\Program.cs",
-              "RelativeToolTip": "TaskProcessor.Api\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T01:09:33.73Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskService.cs",
-              "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Logic\\Services\\TaskService.cs",
-              "RelativeDocumentMoniker": "TaskProcessor.Logic\\Services\\TaskService.cs",
-              "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Logic\\Services\\TaskService.cs",
-              "RelativeToolTip": "TaskProcessor.Logic\\Services\\TaskService.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAiwCcAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T20:41:48.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TaskRepository.cs",
-              "DocumentMoniker": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Data\\Repositories\\TaskRepository.cs",
-              "RelativeDocumentMoniker": "TaskProcessor.Data\\Repositories\\TaskRepository.cs",
-              "ToolTip": "C:\\Users\\idan\\Source\\Repos\\TA9\\Service2\\TaskProcessor.Data\\Repositories\\TaskRepository.cs",
-              "RelativeToolTip": "TaskProcessor.Data\\Repositories\\TaskRepository.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAjwBgAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T18:56:28.826Z",
+              "WhenOpened": "2025-09-19T04:36:01.207Z",
               "EditorCaption": ""
             }
           ]

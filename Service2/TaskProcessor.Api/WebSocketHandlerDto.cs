@@ -1,13 +1,13 @@
 ﻿using System.Text.Json.Serialization;
+using TaskProcessor.Api.Enums;
 using TaskProcessor.Data;
-using TaskProcessor.Data.Models;
 
 namespace TaskProcessor.Api
 {
-    public class AddTaskCommand
+    public class CreateTaskCommand
     {
         [JsonPropertyName("action")]
-        public string Action { get; set; } = "AddTask";
+        public TaskAction Action { get; set; } = TaskAction.CreateTask;
 
         [JsonPropertyName("task")]
         public TaskEntityDto Task { get; set; } = default!;
@@ -16,7 +16,7 @@ namespace TaskProcessor.Api
     public class UpdateStatusCommand
     {
         [JsonPropertyName("action")]
-        public string Action { get; set; } = "UpdateTask";
+        public TaskAction Action { get; set; } = TaskAction.UpdateTask;
 
         [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
@@ -28,7 +28,7 @@ namespace TaskProcessor.Api
     public class DeleteTaskCommand
     {
         [JsonPropertyName("action")]
-        public string Action { get; set; } = "DeleteTask";
+        public TaskAction Action { get; set; } = TaskAction.DeleteTask;
 
         [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
